@@ -2,8 +2,8 @@ import os
 from datetime import datetime
 
 # Lokasi folder A dan B
-folder_a = r'C:\Users\Aang Solihin\Downloads\CS\RealTime-master\src\RealTime\CustomAI'
-folder_b = r'C:\Users\Aang Solihin\Downloads\CS\RealTimeDEMiGOD\RealTime\CustomAI'
+folder_a = r''
+folder_b = r''
 
 # Mendapatkan daftar nama file di masing-masing folder
 files_in_a = set(os.listdir(folder_a))
