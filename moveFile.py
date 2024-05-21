@@ -1,9 +1,13 @@
 import os
 import shutil
+from colorama import init, Fore, Style
+
+# Inisialisasi colorama
+init(autoreset=True)
 
 # Direktori sumber dan tujuan
-source_dir = 'path/to/Realface'  # Ganti dengan path folder sumber
-destination_dir = 'path/to/destination'  # Ganti dengan path folder tujuan
+source_dir = r'Folder Awal'  # Ganti dengan path folder sumber
+destination_dir = r'Folder Tujuan'  # Ganti dengan path folder tujuan
 
 # Buat folder tujuan jika belum ada
 folders = ['body', 'faces', 'hair', 'hairlod', 'heads']
@@ -20,6 +24,9 @@ prefix_to_folder = {
     'playerskin_': 'body'
 }
 
+# Menyimpan daftar file yang dipindahkan ke setiap folder
+files_moved = {folder: [] for folder in folders}
+
 # Fungsi untuk memindahkan file
 def move_files():
     for root, dirs, files in os.walk(source_dir):
@@ -30,8 +37,18 @@ def move_files():
                         src_path = os.path.join(root, file)
                         dest_path = os.path.join(destination_dir, folder, file)
                         shutil.move(src_path, dest_path)
-                        print(f"Memindahkan {file} ke {folder}")
+                        files_moved[folder].append(file)
                         break
 
 # Panggil fungsi untuk memindahkan file
+print(Fore.GREEN + "---- OPERASI DI MULAI ----\n")
 move_files()
+
+# Cetak hasil
+for folder in folders:
+    print(Fore.CYAN + f"~ Dipindahkan ke folder -> {folder} :")
+    for i, file in enumerate(files_moved[folder], 1):
+        print(f"- {i}. {file}")
+    print(f"~ Yang berjumlah {len(files_moved[folder])} file\n")
+
+print(Fore.GREEN + "---- SELAMAT OPERASI BERHASIL ----")
