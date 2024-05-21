@@ -6,8 +6,8 @@ from colorama import init, Fore, Style
 init(autoreset=True)
 
 # Direktori sumber dan tujuan
-source_dir = r'Folder Awal'  # Ganti dengan path folder sumber
-destination_dir = r'Folder Tujuan'  # Ganti dengan path folder tujuan
+source_dir = r'Target Awal'  # Ganti dengan path folder sumber
+destination_dir = r'Target Akhir'  # Ganti dengan path folder tujuan
 
 # Buat folder tujuan jika belum ada
 folders = ['body', 'faces', 'hair', 'hairlod', 'heads']
@@ -49,6 +49,6 @@ for folder in folders:
     print(Fore.CYAN + f"~ Dipindahkan ke folder -> {folder} :")
     for i, file in enumerate(files_moved[folder], 1):
         print(f"- {i}. {file}")
-    print(f"~ Yang berjumlah {len(files_moved[folder])} file\n")
+    print(Fore.RED + f"~ Yang berjumlah {len(files_moved[folder])} file\n")
 
 print(Fore.GREEN + "---- SELAMAT OPERASI BERHASIL ----")
