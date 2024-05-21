@@ -1,8 +1,8 @@
 from PIL import Image
 import os
 
-input_folder = r''
-output_folder = r''
+input_folder = r'C:\Users\Aang Solihin\Pictures\256x256'
+output_folder = r'C:\Users\Aang Solihin\Pictures\32x32'
 target_size = (32, 32)
 files_per_batch = 20  # Jumlah file per kelompok
 
